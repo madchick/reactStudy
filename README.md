@@ -8,7 +8,7 @@ create-react-app .
 npm install - github에서 소스다운 받은 후 node module 설치<br/>
 npm run start
 
-index.css, App.css - 내용 모두 삭제
+index.css, App.css - 내용 모두 삭제 후 코딩 시작
 
 npm run build
 
