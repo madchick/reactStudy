@@ -8,6 +8,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      mode:'read',
+      whelcome:{title:'Welcome', desc:'Hello, React!!!'},
       subject:{title:'WEB', sub:'world wide web'},
       contents:[
         {id:1, title:'HTML', desc:'HTML is for information'},
@@ -17,14 +19,35 @@ class App extends Component {
     }
   }
   render() {
+    console.log('App render');
+    var _title, _desc = null;
+    if(this.state.mode === 'welcome') {
+      _title = this.state.whelcome.title;
+      _desc = this.state.whelcome.desc; 
+    } else if(this.state.mode === 'read') {
+      _title = this.state.contents[0].title;
+      _desc = this.state.contents[0].desc; 
+    }
     return (
       <div className="App">
+{/*
+        <header>
+          <h1><a href="/" onClick={function(e){
+            e.preventDefault();
+            this.setState({mode:'welcome'});
+          }.bind(this)}>{this.state.subject.title}</a></h1>
+          {this.state.subject.sub}
+        </header>
+*/}
         <Subject 
           title={this.state.subject.title} 
-          sub={this.state.subject.sub}></Subject>
-        <Subject title="React" sub="For UI"></Subject>
+          sub={this.state.subject.sub}
+          onChangePage={function(){
+            this.setState({mode:'welcome'});
+          }.bind(this)}
+        ></Subject>        
         <TOC data={this.state.contents}></TOC>
-        <Content title="HTML" desc="HTML is HyperText Markup Language."></Content>
+        <Content title={_title} desc={_desc}></Content>
       </div>
     );
   }
