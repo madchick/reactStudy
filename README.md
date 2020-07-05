@@ -4,6 +4,7 @@ npm install -g create-react-app<br/>
 create-react-app -V
 
 create-react-app .
+create-react-app redux-example
 
 npm install - github에서 소스다운 받은 후 node module 설치<br/>
 npm run start
@@ -14,6 +15,8 @@ npm run build
 
 npm install -g serve<br/>
 serve -s build
+
+npm install --save redux react-redux
 
 
 
