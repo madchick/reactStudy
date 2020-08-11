@@ -1,0 +1,28 @@
+.input{
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.inputs{
+  width: 500px;
+  justify-content: space-around;
+  align-items : stretch;
+}
+
+.MuiIconButton-root.close{
+  width: 60px;
+  height: 60px;
+}
+#textinput, .h1, h1 {
+  display: inline;
+  font-size: 1rem;
+  font-weight: 0;
+  line-height: 1;
+}
+#divinput{
+  width: 100px;
+}
+.tab { white-space: pre; }
+.multiline{
+  width: 500px;
+}
