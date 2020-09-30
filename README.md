@@ -3,7 +3,8 @@
 npm install -g create-react-app<br/>
 create-react-app -V
 
-create-react-app .
+npx create-react-app movie_app  
+create-react-app .  
 create-react-app redux-example
 
 npm install - github에서 소스다운 받은 후 node module 설치<br/>
