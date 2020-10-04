@@ -3,33 +3,33 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "prop-types": "^15.7.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "axios": "^0.18.0",
+    "gh-pages": "^2.0.1",
+    "prop-types": "^15.6.2",
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-helmet": "^5.2.0",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.1",
+    "styled-components": "^4.1.2",
+    "styled-reset": "^1.6.2"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build",
+    "predeploy": "yarn run build"
   },
   "eslintConfig": {
     "extends": "react-app"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+  "homepage": "https://hungry-noether-8ac1d6.netlify.com",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }
