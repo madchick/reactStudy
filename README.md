@@ -21,3 +21,11 @@ npm install --save redux react-redux
 
 
 
+npx create-snowpack-app test --template @snowpack/app-template-react
+
+
+
+npm install @ffmpeg/ffmpeg @ffmpeg/core
+
+
+
