@@ -42,7 +42,7 @@ function App() {
 
       <button onClick={convertToGif}>Convert</button>
       <br/><br/>
-      { gif && <img src={gif} width="250" />}
+      { gif && <img alt="" src={gif} width="250"/> }
     
     </div>
   ) : 
