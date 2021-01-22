@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
-// import youtubedl from 'youtube-dl';
-import fs from 'fs';
-
 import { createFFmpeg, fetchFile } from '@ffmpeg/ffmpeg';
 const ffmpeg = createFFmpeg({ log: true });
 
@@ -12,6 +9,9 @@ function App() {
   const [ready, setReady] = useState(false);
   const [video, setVideo] = useState();
   const [gif, setGif] = useState();
+
+  const [startSec, setStartSec] = useState('0');
+  const [endSec, setEndSec] = useState('0');
 
   const load = async() => {
     await ffmpeg.load();
@@ -24,7 +24,8 @@ function App() {
 
   const convertToGif = async() => {
     ffmpeg.FS('writeFile', 'test.mp4', await fetchFile(video));
-    await ffmpeg.run('-i','test.mp4','-t','2.5','-ss','2.0','-f','gif','out.gif');
+    var duration = Number(endSec)-Number(startSec);
+    await ffmpeg.run('-i','test.mp4','-t',String(duration),'-ss',startSec,'-f','gif','out.gif');
     const data = ffmpeg.FS('readFile','out.gif');
     const url = URL.createObjectURL(new Blob([data.buffer], {type: 'image/gif'}));
     setGif(url);
@@ -50,26 +51,28 @@ function App() {
   return ready ? (
     <div className="App">
       <br/><br/>
-          <input type="text" name="url" placeholder="type youtube url"/>
-          <button type="button" onclick="">다운로드</button>
+      버튼을 클릭하여, PC에 저장된 동영상을 선택해주세요<br/><br/>
+      <input type="file" onChange={(e) => setVideo(e.target.files?.item(0))} />
       <br/><br/>
       { video && <video
                     controls
-                    width="250"
+                    width="400"
                     src={URL.createObjectURL(video)}>
                   </video>}
-      <br/><br/>
-      <input type="file" onChange={(e) => setVideo(e.target.files?.item(0))} />
 
-      <h3>Result</h3>
-
-      <button onClick={convertToGif}>Convert</button>
       <br/><br/>
-      { gif && <img alt="" src={gif} width="250"/> }
-    
+      시작 : <input type="text" onChange={event => setStartSec(event.target.value)}/>초
+      <br/><br/>
+      종료 : <input type="text" onChange={event => setEndSec(event.target.value)}/>초
+      <br/><br/><br/><br/>
+
+      <button onClick={convertToGif}>GIF 파일 만들기</button>
+      <br/><br/>
+      { gif && <div>마우스 우측버튼으로 저장 가능합니다<br/><br/><img alt="" src={gif} width="400"/></div> }
+      <br/><br/><br/>
     </div>
   ) : 
-  (<p>Loading...</p>);
+  (<div><br/><br/><center><p>Loading...</p><br/><br/>폰에서는 실행되지 않습니다<br/><br/>PC용 크롬에 엣지 브라우저에서 실행 가능합니다</center><br/><br/></div>);
 }
 
 export default App;
