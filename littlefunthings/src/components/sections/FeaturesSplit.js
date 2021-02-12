@@ -50,8 +50,8 @@ const FeaturesSplit = ({
   );
 
   const sectionHeader = {
-    title: 'Workflow that just works',
-    paragraph: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum — semper quis lectus nulla at volutpat diam ut venenatis.'
+    title: `madchick's little fun things`,
+    paragraph: 'funny sites i wrote or got from github, youtube and what a great whole internet world'
   };
 
   return (
@@ -64,17 +64,19 @@ const FeaturesSplit = ({
           <SectionHeader data={sectionHeader} className="center-content" />
           <div className={splitClasses}>
 
-            <div className="split-item">
+            <div className="split-item">              
               <div className="split-item-content center-content-mobile reveal-from-left" data-reveal-container=".split-item">
                 <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
-                  Lightning fast workflow
-                  </div>
+                  AI, deep learning
+                </div>
                 <h3 className="mt-0 mb-12">
-                  Data-driven insights
-                  </h3>
+                  AI face-comparison
+                </h3>
                 <p className="m-0">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </p>
+                  Using Google Teachable Machine, find out which animal face looks like mine, and Korean K-pop or movie starts
+                  <br></br><br></br><a href="https://www.youtube.com/watch?v=ZTJjW7XuHIY&list=PLU9-uwewPMe2-vtJAgWB6SNhHcTjJDgEO" target="jocodingyoutube">got it from JoCoding's youtube</a>
+                  <br></br><a href="https://littlefunthings.netlify.app/animalface" target="animalface">go to see</a>
+                </p>
               </div>
               <div className={
                 classNames(
@@ -93,13 +95,15 @@ const FeaturesSplit = ({
             <div className="split-item">
               <div className="split-item-content center-content-mobile reveal-from-right" data-reveal-container=".split-item">
                 <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
-                  Lightning fast workflow
+                  OpenAPI, Open Street Map
                   </div>
                 <h3 className="mt-0 mb-12">
-                  Data-driven insights
+                  Drawing street map you want
                   </h3>
                 <p className="m-0">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                Render every single road in any city at once. You can save street map in png image file.
+                  <br></br><br></br><a href="https://github.com/anvaka/city-roads" target="anvakacityroads">got it from anvaka's github</a>
+                  <br></br><a href="https://littlefunthings.netlify.app/cityroads" target="cityroads">go to see</a>
                   </p>
               </div>
               <div className={
@@ -119,13 +123,15 @@ const FeaturesSplit = ({
             <div className="split-item">
               <div className="split-item-content center-content-mobile reveal-from-left" data-reveal-container=".split-item">
                 <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
-                  Lightning fast workflow
+                  OpenCV, Javascript, Web Assembly
                   </div>
                 <h3 className="mt-0 mb-12">
-                  Data-driven insights
+                  Make gif animation from video
                   </h3>
                 <p className="m-0">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua — Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                  Build a web app the converts video to animated GIF with Web Assembly. It's not working on your smart phone, it works on PC web browser only. you can get animated gif with one click
+                  <br></br><br></br><a href="https://fireship.io/lessons/wasm-video-to-gif" target="fireshipio">got it from fireship.io</a>
+                  <br></br><a href="https://littlefunthings.netlify.app/gifmaker" target="gifmaker">go to see</a>
                   </p>
               </div>
               <div className={
@@ -142,6 +148,90 @@ const FeaturesSplit = ({
               </div>
             </div>
 
+            <div className="split-item">
+              <div className="split-item-content center-content-mobile reveal-from-right" data-reveal-container=".split-item">
+                <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
+                  HTML, CSS, Javascript
+                  </div>
+                <h3 className="mt-0 mb-12">
+                  Fortune telling
+                  </h3>
+                <p className="m-0">
+                  Let's find out your fortune in year of 2021.
+                  <br></br><br></br><a href="https://spartacodingclub.kr/online/seasonal" target="spartacodingclub">got it from sparta coding club</a>
+                  <br></br><a href="https://littlefunthings.netlify.app/luckynewyear" target="luckynewyear">go to see</a>
+                  </p>
+              </div>
+              <div className={
+                classNames(
+                  'split-item-image center-content-mobile reveal-from-bottom',
+                  imageFill && 'split-item-image-fill'
+                )}
+                data-reveal-container=".split-item">
+                <Image
+                  src={require('./../../assets/images/features-split-image-04.png')}
+                  alt="Features split 02"
+                  width={528}
+                  height={396} />
+              </div>
+            </div>            
+
+            <div className="split-item">
+              <div className="split-item-content center-content-mobile reveal-from-left" data-reveal-container=".split-item">
+                <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
+                  ReactJS, OpenAPI
+                  </div>
+                <h3 className="mt-0 mb-12">
+                  Movie App
+                  </h3>
+                <p className="m-0">
+                  Find famous movie and info.
+                  <br></br><br></br><a href="https://nomadcoders.co/react-fundamentals" target="nomadcoders1">got it from nomad coders</a>
+                  <br></br><a href="https://littlefunthings.netlify.app/movie" target="movie">go to see</a>
+                  </p>
+              </div>
+              <div className={
+                classNames(
+                  'split-item-image center-content-mobile reveal-from-bottom',
+                  imageFill && 'split-item-image-fill'
+                )}
+                data-reveal-container=".split-item">
+                <Image
+                  src={require('./../../assets/images/features-split-image-05.png')}
+                  alt="Features split 03"
+                  width={528}
+                  height={396} />
+              </div>
+            </div>
+
+            <div className="split-item">
+              <div className="split-item-content center-content-mobile reveal-from-right" data-reveal-container=".split-item">
+                <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
+                  React Native, OpenAPI
+                  </div>
+                <h3 className="mt-0 mb-12">
+                  Movie, TV Show App
+                  </h3>
+                <p className="m-0">
+                  Find famous movies and TV shows. You can search, get movies and TV shows info.
+                  <br></br><br></br><a href="https://nomadcoders.co/react-native-for-beginners" target="nomadcoders2">got it from nomad coders</a>
+                  <br></br><a href="https://littlefunthings.netlify.app/nomflix" target="nomflix">go to see</a>
+                  </p>
+              </div>
+              <div className={
+                classNames(
+                  'split-item-image center-content-mobile reveal-from-bottom',
+                  imageFill && 'split-item-image-fill'
+                )}
+                data-reveal-container=".split-item">
+                <Image
+                  src={require('./../../assets/images/features-split-image-06.png')}
+                  alt="Features split 02"
+                  width={528}
+                  height={396} />
+              </div>
+            </div>       
+
           </div>
         </div>
       </div>
@@ -153,3 +243,6 @@ FeaturesSplit.propTypes = propTypes;
 FeaturesSplit.defaultProps = defaultProps;
 
 export default FeaturesSplit;
+
+
+

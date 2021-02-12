@@ -11,7 +11,7 @@ function App() {
   const [gif, setGif] = useState();
 
   const [startSec, setStartSec] = useState('0');
-  const [endSec, setEndSec] = useState('0');
+  const [endSec, setEndSec] = useState('3');
 
   const load = async() => {
     await ffmpeg.load();
