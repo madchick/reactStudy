@@ -64,6 +64,60 @@ const FeaturesSplit = ({
           <SectionHeader data={sectionHeader} className="center-content" />
           <div className={splitClasses}>
 
+          <div className="split-item">              
+              <div className="split-item-content center-content-mobile reveal-from-left" data-reveal-container=".split-item">
+                <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
+                  Korean study
+                </div>
+                <h3 className="mt-0 mb-12">
+                  K-Drama favorate lines and qoutes - Listen and speak in Korean
+                </h3>
+                <p className="m-0">
+                  Listening and speaking practice in Korean with K-drama lines and quotes. Powered by Kakao AI speach API.
+                  <br></br><br></br><a href="https://littlefunthings.netlify.app/koreanstudy" target="animalface">go to see</a>
+                </p>
+              </div>
+              <div className={
+                classNames(
+                  'split-item-image center-content-mobile reveal-from-bottom',
+                  imageFill && 'split-item-image-fill'
+                )}
+                data-reveal-container=".split-item">
+                <Image
+                  src={require('./../../assets/images/features-split-image-07.png')}
+                  alt="Features split 01"
+                  width={528}
+                  height={396} />
+              </div>
+            </div>
+
+            <div className="split-item">
+              <div className="split-item-content center-content-mobile reveal-from-right" data-reveal-container=".split-item">
+                <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
+                  English Study
+                  </div>
+                <h3 className="mt-0 mb-12">
+                  Dear Abby - 영어 기사 듣기 (리스닝 연습)
+                  </h3>
+                <p className="m-0">
+                  English listening practice with Dear Abby articles. Powered by google AI Text-to-Speech API.
+                  <br></br><br></br><a href="https://littlefunthings.netlify.app/englishstudy" target="cityroads">go to see</a>
+                  </p>
+              </div>
+              <div className={
+                classNames(
+                  'split-item-image center-content-mobile reveal-from-bottom',
+                  imageFill && 'split-item-image-fill'
+                )}
+                data-reveal-container=".split-item">
+                <Image
+                  src={require('./../../assets/images/features-split-image-08.png')}
+                  alt="Features split 02"
+                  width={528}
+                  height={396} />
+              </div>
+            </div>
+
             <div className="split-item">              
               <div className="split-item-content center-content-mobile reveal-from-left" data-reveal-container=".split-item">
                 <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
