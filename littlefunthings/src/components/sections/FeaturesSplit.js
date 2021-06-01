@@ -70,7 +70,7 @@ const FeaturesSplit = ({
                   Korean study
                 </div>
                 <h3 className="mt-0 mb-12">
-                  K-Drama favorate lines and qoutes - Listen and speak in Korean
+                  K-Drama favorite lines and qoutes - Listen and speak in Korean
                 </h3>
                 <p className="m-0">
                   Listening and speaking practice in Korean with K-drama lines and quotes. Powered by Kakao AI speach API.
