@@ -97,7 +97,7 @@ const FeaturesSplit = ({
                   English Study
                   </div>
                 <h3 className="mt-0 mb-12">
-                  Dear Abby - 영어 기사 듣기 (리스닝 연습)
+                  Dear Abby - 영어 기사 반복 듣기 (리스닝 연습)
                   </h3>
                 <p className="m-0">
                   English listening practice with Dear Abby articles. Powered by google AI Text-to-Speech API.
