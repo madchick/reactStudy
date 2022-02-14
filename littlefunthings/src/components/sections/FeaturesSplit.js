@@ -172,63 +172,7 @@ const FeaturesSplit = ({
                   width={528}
                   height={396} />
               </div>
-            </div>
-
-            <div className="split-item">
-              <div className="split-item-content center-content-mobile reveal-from-left" data-reveal-container=".split-item">
-                <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
-                  OpenCV, Javascript, Web Assembly
-                  </div>
-                <h3 className="mt-0 mb-12">
-                  Make gif animation from video
-                  </h3>
-                <p className="m-0">
-                  Build a web app the converts video to animated GIF with Web Assembly. It's not working on your smart phone, it works on PC web browser only. you can get animated gif with one click
-                  <br></br><br></br><a href="https://fireship.io/lessons/wasm-video-to-gif" target="fireshipio">got it from fireship.io</a>
-                  <br></br><a href="https://littlefunthings.netlify.app/gifmaker" target="gifmaker">go to see</a>
-                  </p>
-              </div>
-              <div className={
-                classNames(
-                  'split-item-image center-content-mobile reveal-from-bottom',
-                  imageFill && 'split-item-image-fill'
-                )}
-                data-reveal-container=".split-item">
-                <Image
-                  src={require('./../../assets/images/features-split-image-03.png')}
-                  alt="Features split 03"
-                  width={528}
-                  height={396} />
-              </div>
-            </div>
-
-            <div className="split-item">
-              <div className="split-item-content center-content-mobile reveal-from-right" data-reveal-container=".split-item">
-                <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
-                  HTML, CSS, Javascript
-                  </div>
-                <h3 className="mt-0 mb-12">
-                  Fortune telling
-                  </h3>
-                <p className="m-0">
-                  Let's find out your fortune in year of 2021.
-                  <br></br><br></br><a href="https://spartacodingclub.kr/online/seasonal" target="spartacodingclub">got it from sparta coding club</a>
-                  <br></br><a href="https://littlefunthings.netlify.app/luckynewyear" target="luckynewyear">go to see</a>
-                  </p>
-              </div>
-              <div className={
-                classNames(
-                  'split-item-image center-content-mobile reveal-from-bottom',
-                  imageFill && 'split-item-image-fill'
-                )}
-                data-reveal-container=".split-item">
-                <Image
-                  src={require('./../../assets/images/features-split-image-04.png')}
-                  alt="Features split 02"
-                  width={528}
-                  height={396} />
-              </div>
-            </div>            
+            </div>         
 
             <div className="split-item">
               <div className="split-item-content center-content-mobile reveal-from-left" data-reveal-container=".split-item">
