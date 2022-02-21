@@ -175,34 +175,6 @@ const FeaturesSplit = ({
             </div>         
 
             <div className="split-item">
-              <div className="split-item-content center-content-mobile reveal-from-left" data-reveal-container=".split-item">
-                <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
-                  ReactJS, OpenAPI
-                  </div>
-                <h3 className="mt-0 mb-12">
-                  Movie App
-                  </h3>
-                <p className="m-0">
-                  Find famous movie and info.
-                  <br></br><br></br><a href="https://nomadcoders.co/react-fundamentals" target="nomadcoders1">got it from nomad coders</a>
-                  <br></br><a href="https://littlefunthings.netlify.app/movie" target="movie">go to see</a>
-                  </p>
-              </div>
-              <div className={
-                classNames(
-                  'split-item-image center-content-mobile reveal-from-bottom',
-                  imageFill && 'split-item-image-fill'
-                )}
-                data-reveal-container=".split-item">
-                <Image
-                  src={require('./../../assets/images/features-split-image-05.png')}
-                  alt="Features split 03"
-                  width={528}
-                  height={396} />
-              </div>
-            </div>
-
-            <div className="split-item">
               <div className="split-item-content center-content-mobile reveal-from-right" data-reveal-container=".split-item">
                 <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
                   React Native, OpenAPI
