@@ -29,6 +29,13 @@
   justify-content: center;
 }
 
+.image-box {
+  width: 200px;
+  height: 200px;
+  min-width: 200px;
+  min-height: 200px;
+}
+
 @media screen and (max-width: 500px) {
   .initial-box {
     gap: 40px;

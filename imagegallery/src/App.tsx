@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import ImageBox from './components/ImageBox';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
             +
           </div>
         </div>
+        <ImageBox src="kkk"/>
       </div>
     </div>
   );
