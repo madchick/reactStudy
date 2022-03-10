@@ -74,7 +74,7 @@ const FeaturesSplit = ({
                 </h3>
                 <p className="m-0">
                   Listening and speaking practice in Korean with K-drama lines and quotes. Powered by Kakao AI speach API.
-                  <br></br><br></br><a href="https://littlefunthings.netlify.app/koreanstudy" target="animalface">go to see</a>
+                  <br></br><br></br><a href="https://littlefunthings.netlify.app/koreanstudy" target="animalface">go to see live demo</a>
                 </p>
               </div>
               <div className={
@@ -101,7 +101,7 @@ const FeaturesSplit = ({
                   </h3>
                 <p className="m-0">
                   English listening practice with Dear Abby articles. Powered by google AI Text-to-Speech API.
-                  <br></br><br></br><a href="https://littlefunthings.netlify.app/englishstudy" target="cityroads">go to see</a>
+                  <br></br><br></br><a href="https://littlefunthings.netlify.app/englishstudy" target="cityroads">go to see live demo</a>
                   </p>
               </div>
               <div className={
@@ -129,7 +129,7 @@ const FeaturesSplit = ({
                 <p className="m-0">
                   Using Google Teachable Machine, find out which animal face looks like mine, and Korean K-pop or movie starts
                   <br></br><br></br><a href="https://www.youtube.com/watch?v=ZTJjW7XuHIY&list=PLU9-uwewPMe2-vtJAgWB6SNhHcTjJDgEO" target="jocodingyoutube">got it from JoCoding's youtube</a>
-                  <br></br><a href="https://littlefunthings.netlify.app/animalface" target="animalface">go to see</a>
+                  <br></br><a href="https://littlefunthings.netlify.app/animalface" target="animalface">go to see live demo</a>
                 </p>
               </div>
               <div className={
@@ -157,7 +157,7 @@ const FeaturesSplit = ({
                 <p className="m-0">
                 Render every single road in any city at once. You can save street map in png image file.
                   <br></br><br></br><a href="https://github.com/anvaka/city-roads" target="anvakacityroads">got it from anvaka's github</a>
-                  <br></br><a href="https://littlefunthings.netlify.app/cityroads" target="cityroads">go to see</a>
+                  <br></br><a href="https://littlefunthings.netlify.app/cityroads" target="cityroads">go to see live demo</a>
                   </p>
               </div>
               <div className={
@@ -185,7 +185,7 @@ const FeaturesSplit = ({
                 <p className="m-0">
                   Find famous movies and TV shows. You can search, get movies and TV shows info.
                   <br></br><br></br><a href="https://nomadcoders.co/react-native-for-beginners" target="nomadcoders2">got it from nomad coders</a>
-                  <br></br><a href="https://littlefunthings.netlify.app/nomflix" target="nomflix">go to see</a>
+                  <br></br><a href="https://littlefunthings.netlify.app/nomflix" target="nomflix">go to see live demo</a>
                   </p>
               </div>
               <div className={
@@ -200,7 +200,61 @@ const FeaturesSplit = ({
                   width={528}
                   height={396} />
               </div>
-            </div>       
+            </div>     
+
+            <div className="split-item">
+              <div className="split-item-content center-content-mobile reveal-from-right" data-reveal-container=".split-item">
+                <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
+                  Javascript
+                  </div>
+                <h3 className="mt-0 mb-12">
+                  Wordle game clone
+                  </h3>
+                <p className="m-0">
+                  Wordle game clone using javascript only.
+                  <br></br><br></br><a href="https://littlefunthings.netlify.app/wordle" target="wordle">go to see live demo</a>
+                  </p>
+              </div>
+              <div className={
+                classNames(
+                  'split-item-image center-content-mobile reveal-from-bottom',
+                  imageFill && 'split-item-image-fill'
+                )}
+                data-reveal-container=".split-item">
+                <Image
+                  src={require('./../../assets/images/features-split-image-10.png')}
+                  alt="Features split 02"
+                  width={528}
+                  height={396} />
+              </div>
+            </div>                                   
+
+            <div className="split-item">
+              <div className="split-item-content center-content-mobile reveal-from-right" data-reveal-container=".split-item">
+                <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
+                  Javascript, Google Calendar API
+                  </div>
+                <h3 className="mt-0 mb-12">
+                  World holiday list
+                  </h3>
+                <p className="m-0">
+                  Show holiday list of this year for some countries.
+                  <br></br><br></br><a href="https://littlefunthings.netlify.app/holidaylist" target="holidaylist">go to see live demo</a>
+                  </p>
+              </div>
+              <div className={
+                classNames(
+                  'split-item-image center-content-mobile reveal-from-bottom',
+                  imageFill && 'split-item-image-fill'
+                )}
+                data-reveal-container=".split-item">
+                <Image
+                  src={require('./../../assets/images/features-split-image-09.png')}
+                  alt="Features split 02"
+                  width={528}
+                  height={396} />
+              </div>
+            </div>   
 
           </div>
         </div>
