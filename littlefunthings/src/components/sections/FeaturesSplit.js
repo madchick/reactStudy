@@ -74,7 +74,7 @@ const FeaturesSplit = ({
                 </h3>
                 <p className="m-0">
                   Listening and speaking practice in Korean with K-drama lines and quotes. Powered by Kakao AI speach API.
-                  <br></br><br></br><a href="https://littlefunthings.netlify.app/koreanstudy" target="animalface">go to see live demo</a>
+                  <br></br><br></br><a href="https://littlefunthings.netlify.app/koreanstudy" target="koreanstudy">go to see live demo</a>
                 </p>
               </div>
               <div className={
@@ -101,7 +101,7 @@ const FeaturesSplit = ({
                   </h3>
                 <p className="m-0">
                   English listening practice with Dear Abby articles. Powered by google AI Text-to-Speech API.
-                  <br></br><br></br><a href="https://littlefunthings.netlify.app/englishstudy" target="cityroads">go to see live demo</a>
+                  <br></br><br></br><a href="https://littlefunthings.netlify.app/englishstudy" target="englishstudy">go to see live demo</a>
                   </p>
               </div>
               <div className={
@@ -113,6 +113,114 @@ const FeaturesSplit = ({
                 <Image
                   src={require('./../../assets/images/features-split-image-08.png')}
                   alt="Features split 02"
+                  width={528}
+                  height={396} />
+              </div>
+            </div>
+
+            <div className="split-item">              
+              <div className="split-item-content center-content-mobile reveal-from-left" data-reveal-container=".split-item">
+                <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
+                  Korean study
+                </div>
+                <h3 className="mt-0 mb-12">
+                  Korean movie favorite lines and quotes
+                </h3>
+                <p className="m-0">
+                  Listening and speaking practice in Korean with Korean movie lines and quotes. Powered by Kakao AI speach API.
+                  <br></br><br></br><a href="https://littlefunthings.netlify.app/moviekorean" target="moviekorean">go to see live demo</a>
+                </p>
+              </div>
+              <div className={
+                classNames(
+                  'split-item-image center-content-mobile reveal-from-bottom',
+                  imageFill && 'split-item-image-fill'
+                )}
+                data-reveal-container=".split-item">
+                <Image
+                  src={require('./../../assets/images/features-split-image-11.png')}
+                  alt="Features split 01"
+                  width={528}
+                  height={396} />
+              </div>
+            </div>
+
+            <div className="split-item">              
+              <div className="split-item-content center-content-mobile reveal-from-left" data-reveal-container=".split-item">
+                <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
+                  English Study
+                </div>
+                <h3 className="mt-0 mb-12">
+                  Awesome English expressions from TV series, best quotes, lines
+                </h3>
+                <p className="m-0">
+                  English listening practice with TV series. Powered by google AI Text-to-Speech API.
+                  <br></br><br></br><a href="https://littlefunthings.netlify.app/tvseriesenglish" target="tvseriesenglish">go to see live demo</a>
+                </p>
+              </div>
+              <div className={
+                classNames(
+                  'split-item-image center-content-mobile reveal-from-bottom',
+                  imageFill && 'split-item-image-fill'
+                )}
+                data-reveal-container=".split-item">
+                <Image
+                  src={require('./../../assets/images/features-split-image-12.png')}
+                  alt="Features split 01"
+                  width={528}
+                  height={396} />
+              </div>
+            </div>
+
+            <div className="split-item">              
+              <div className="split-item-content center-content-mobile reveal-from-left" data-reveal-container=".split-item">
+                <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
+                  English Study
+                </div>
+                <h3 className="mt-0 mb-12">
+                  English quotes from movies
+                </h3>
+                <p className="m-0">
+                  English listening practice with movies. Powered by google AI Text-to-Speech API.
+                  <br></br><br></br><a href="https://littlefunthings.netlify.app/movieenglish" target="movieenglish">go to see live demo</a>
+                </p>
+              </div>
+              <div className={
+                classNames(
+                  'split-item-image center-content-mobile reveal-from-bottom',
+                  imageFill && 'split-item-image-fill'
+                )}
+                data-reveal-container=".split-item">
+                <Image
+                  src={require('./../../assets/images/features-split-image-13.png')}
+                  alt="Features split 01"
+                  width={528}
+                  height={396} />
+              </div>
+            </div>
+
+            <div className="split-item">              
+              <div className="split-item-content center-content-mobile reveal-from-left" data-reveal-container=".split-item">
+                <div className="text-xxs text-color-primary fw-600 tt-u mb-8">
+                  English Study
+                </div>
+                <h3 className="mt-0 mb-12">
+                  English everyday conversation examples, lines, sentences
+                </h3>
+                <p className="m-0">
+                  English listening practice with everyday conversation examples. Powered by google AI Text-to-Speech API.
+                  <br></br><br></br><a href="https://littlefunthings.netlify.app/englishconv" target="englishconv">go to see live demo</a>
+                </p>
+              </div>
+              <div className={
+                classNames(
+                  'split-item-image center-content-mobile reveal-from-bottom',
+                  imageFill && 'split-item-image-fill'
+                )}
+                data-reveal-container=".split-item">
+                <Image
+                  src={require('./../../assets/images/features-split-image-14.png')}
+                  alt="Features split 01"
                   width={528}
                   height={396} />
               </div>
