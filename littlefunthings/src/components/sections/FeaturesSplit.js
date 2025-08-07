@@ -70,11 +70,19 @@ const FeaturesSplit = ({
                   Korean study
                 </div>
                 <h3 className="mt-0 mb-12">
-                  K-Drama favorite lines and quotes - Listen and speak, memorize in Korean
+                  K-Drama & K-Movie favorite lines and quotes - Listen and speak, memorize in Korean
                 </h3>
                 <p className="m-0">
                   Listening and speaking practice in Korean with K-drama lines and quotes. Powered by Kakao AI speach API.
                   <br></br><br></br><a href="https://littlefunthings.netlify.app/koreanstudy" target="koreanstudy">go to see live demo</a>
+                </p>
+                <p className="m-0">
+<center>
+<br/><br/>
+<a href="https://play.google.com/store/apps/details?id=com.pseudosoft21.kdramaquotes" target="_blank"><img src="../koreanstudy/images/googleplay.png" width="200"></a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://apps.apple.com/kr/app/id1626721188" target="_blank"><img src="../koreanstudy/images/appleappstore.png" width="200"></a>
+</center>
                 </p>
               </div>
               <div className={
@@ -102,7 +110,15 @@ const FeaturesSplit = ({
                 <p className="m-0">
                   English listening practice with Dear Abby articles. Powered by google AI Text-to-Speech API.
                   <br></br><br></br><a href="https://littlefunthings.netlify.app/englishstudy" target="englishstudy">go to see live demo</a>
-                  </p>
+                </p>
+                <p className="m-0">
+<center>
+<br/><br/>
+<a href="https://play.google.com/store/apps/details?id=com.pseudosoft21.dailyenglish" target="_blank"><img src="../englishstudy/images/googleplay.png" width="200"></a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://apps.apple.com/us/app/id6503616543" target="_blank"><img src="../englishstudy/images/appleappstore.png" width="200"></a>
+</center>
+                </p>
               </div>
               <div className={
                 classNames(
@@ -129,6 +145,14 @@ const FeaturesSplit = ({
                 <p className="m-0">
                   Listening and speaking practice in Korean with Korean movie lines and quotes. Powered by Kakao AI speach API.
                   <br></br><br></br><a href="https://littlefunthings.netlify.app/moviekorean" target="moviekorean">go to see live demo</a>
+                </p>
+                <p className="m-0">
+<center>
+<br/><br/>
+<a href="https://play.google.com/store/apps/details?id=com.pseudosoft21.kdramaquotes" target="_blank"><img src="../koreanstudy/images/googleplay.png" width="200"></a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://apps.apple.com/kr/app/id1626721188" target="_blank"><img src="../koreanstudy/images/appleappstore.png" width="200"></a>
+</center>
                 </p>
               </div>
               <div className={
@@ -157,6 +181,14 @@ const FeaturesSplit = ({
                   English listening practice with TV series. Powered by google AI Text-to-Speech API.
                   <br></br><br></br><a href="https://littlefunthings.netlify.app/tvseriesenglish" target="tvseriesenglish">go to see live demo</a>
                 </p>
+                <p className="m-0">
+<center>
+<br/><br/>
+<a href="https://play.google.com/store/apps/details?id=com.pseudosoft21.dailyenglish" target="_blank"><img src="../englishstudy/images/googleplay.png" width="200"></a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://apps.apple.com/us/app/id6503616543" target="_blank"><img src="../englishstudy/images/appleappstore.png" width="200"></a>
+</center>
+                </p>
               </div>
               <div className={
                 classNames(
@@ -184,6 +216,14 @@ const FeaturesSplit = ({
                   English listening practice with movies. Powered by google AI Text-to-Speech API.
                   <br></br><br></br><a href="https://littlefunthings.netlify.app/movieenglish" target="movieenglish">go to see live demo</a>
                 </p>
+                <p className="m-0">
+<center>
+<br/><br/>
+<a href="https://play.google.com/store/apps/details?id=com.pseudosoft21.dailyenglish" target="_blank"><img src="../englishstudy/images/googleplay.png" width="200"></a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://apps.apple.com/us/app/id6503616543" target="_blank"><img src="../englishstudy/images/appleappstore.png" width="200"></a>
+</center>
+                </p>
               </div>
               <div className={
                 classNames(
@@ -210,6 +250,14 @@ const FeaturesSplit = ({
                 <p className="m-0">
                   English listening practice with everyday conversation examples. Powered by google AI Text-to-Speech API.
                   <br></br><br></br><a href="https://littlefunthings.netlify.app/englishconv" target="englishconv">go to see live demo</a>
+                </p>
+                <p className="m-0">
+<center>
+<br/><br/>
+<a href="https://play.google.com/store/apps/details?id=com.pseudosoft21.dailyenglish" target="_blank"><img src="../englishstudy/images/googleplay.png" width="200"></a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://apps.apple.com/us/app/id6503616543" target="_blank"><img src="../englishstudy/images/appleappstore.png" width="200"></a>
+</center>
                 </p>
               </div>
               <div className={
@@ -263,10 +311,10 @@ const FeaturesSplit = ({
                   Drawing street map you want
                   </h3>
                 <p className="m-0">
-                Render every single road in any city at once. You can save street map in png image file.
+                  Render every single road in any city at once. You can save street map in png image file.
                   <br></br><br></br><a href="https://github.com/anvaka/city-roads" target="anvakacityroads">got it from anvaka's github</a>
                   <br></br><a href="https://littlefunthings.netlify.app/cityroads" target="cityroads">go to see live demo</a>
-                  </p>
+                </p>
               </div>
               <div className={
                 classNames(
@@ -294,7 +342,7 @@ const FeaturesSplit = ({
                   Find famous movies and TV shows. You can search, get movies and TV shows info.
                   <br></br><br></br><a href="https://nomadcoders.co/react-native-for-beginners" target="nomadcoders2">got it from nomad coders</a>
                   <br></br><a href="https://littlefunthings.netlify.app/nomflix" target="nomflix">go to see live demo</a>
-                  </p>
+                </p>
               </div>
               <div className={
                 classNames(
