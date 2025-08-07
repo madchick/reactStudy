@@ -79,9 +79,9 @@ const FeaturesSplit = ({
                 <p className="m-0">
 <center>
 <br/><br/>
-<a href="https://play.google.com/store/apps/details?id=com.pseudosoft21.kdramaquotes" target="_blank"><Image src={require('../koreanstudy/images/googleplay.png')} width={200}/></a>
+<a href="https://play.google.com/store/apps/details?id=com.pseudosoft21.kdramaquotes" target="_blank"><Image src={require('./../../assets/images/googleplay.png')} width={200}/></a>
 &nbsp;&nbsp;&nbsp;&nbsp;
-<a href="https://apps.apple.com/kr/app/id1626721188" target="_blank"><Image src={require('../koreanstudy/images/appleappstore.png')} width={200}/></a>
+<a href="https://apps.apple.com/kr/app/id1626721188" target="_blank"><Image src={require('./../../assets/images/appleappstore.png')} width={200}/></a>
 </center>
                 </p>
               </div>
@@ -114,9 +114,9 @@ const FeaturesSplit = ({
                 <p className="m-0">
 <center>
 <br/><br/>
-<a href="https://play.google.com/store/apps/details?id=com.pseudosoft21.dailyenglish" target="_blank"><Image src={require('../englishstudy/images/googleplay.png')} width={200}/></a>
+<a href="https://play.google.com/store/apps/details?id=com.pseudosoft21.dailyenglish" target="_blank"><Image src={require('./../../assets/images/googleplay.png')} width={200}/></a>
 &nbsp;&nbsp;&nbsp;&nbsp;
-<a href="https://apps.apple.com/us/app/id6503616543" target="_blank"><Image src={require('../englishstudy/images/appleappstore.png')} width={200}/></a>
+<a href="https://apps.apple.com/us/app/id6503616543" target="_blank"><Image src={require('./../../assets/images/appleappstore.png')} width={200}/></a>
 </center>
                 </p>
               </div>
@@ -149,9 +149,9 @@ const FeaturesSplit = ({
                 <p className="m-0">
 <center>
 <br/><br/>
-<a href="https://play.google.com/store/apps/details?id=com.pseudosoft21.kdramaquotes" target="_blank"><Image src={require('../koreanstudy/images/googleplay.png')} width={200}/></a>
+<a href="https://play.google.com/store/apps/details?id=com.pseudosoft21.kdramaquotes" target="_blank"><Image src={require('./../../assets/images/googleplay.png')} width={200}/></a>
 &nbsp;&nbsp;&nbsp;&nbsp;
-<a href="https://apps.apple.com/kr/app/id1626721188" target="_blank"><Image src={require('../koreanstudy/images/appleappstore.png')} width={200}/></a>
+<a href="https://apps.apple.com/kr/app/id1626721188" target="_blank"><Image src={require('./../../assets/images/appleappstore.png')} width={200}/></a>
 </center>
                 </p>
               </div>
@@ -184,9 +184,9 @@ const FeaturesSplit = ({
                 <p className="m-0">
 <center>
 <br/><br/>
-<a href="https://play.google.com/store/apps/details?id=com.pseudosoft21.dailyenglish" target="_blank"><Image src={require('../englishstudy/images/googleplay.png')} width={200}/></a>
+<a href="https://play.google.com/store/apps/details?id=com.pseudosoft21.dailyenglish" target="_blank"><Image src={require('./../../assets/images/googleplay.png')} width={200}/></a>
 &nbsp;&nbsp;&nbsp;&nbsp;
-<a href="https://apps.apple.com/us/app/id6503616543" target="_blank"><Image src={require('../englishstudy/images/appleappstore.png')} width={200}/></a>
+<a href="https://apps.apple.com/us/app/id6503616543" target="_blank"><Image src={require('./../../assets/images/appleappstore.png')} width={200}/></a>
 </center>
                 </p>
               </div>
@@ -219,9 +219,9 @@ const FeaturesSplit = ({
                 <p className="m-0">
 <center>
 <br/><br/>
-<a href="https://play.google.com/store/apps/details?id=com.pseudosoft21.dailyenglish" target="_blank"><Image src={require('../englishstudy/images/googleplay.png')} width={200}/></a>
+<a href="https://play.google.com/store/apps/details?id=com.pseudosoft21.dailyenglish" target="_blank"><Image src={require('./../../assets/images/googleplay.png')} width={200}/></a>
 &nbsp;&nbsp;&nbsp;&nbsp;
-<a href="https://apps.apple.com/us/app/id6503616543" target="_blank"><Image src={require('../englishstudy/images/appleappstore.png')} width={200}/></a>
+<a href="https://apps.apple.com/us/app/id6503616543" target="_blank"><Image src={require('./../../assets/images/appleappstore.png')} width={200}/></a>
 </center>
                 </p>
               </div>
@@ -254,9 +254,9 @@ const FeaturesSplit = ({
                 <p className="m-0">
 <center>
 <br/><br/>
-<a href="https://play.google.com/store/apps/details?id=com.pseudosoft21.dailyenglish" target="_blank"><Image src={require('../englishstudy/images/googleplay.png')} width={200}/></a>
+<a href="https://play.google.com/store/apps/details?id=com.pseudosoft21.dailyenglish" target="_blank"><Image src={require('./../../assets/images/googleplay.png')} width={200}/></a>
 &nbsp;&nbsp;&nbsp;&nbsp;
-<a href="https://apps.apple.com/us/app/id6503616543" target="_blank"><Image src={require('../englishstudy/images/appleappstore.png')} width={200}/></a>
+<a href="https://apps.apple.com/us/app/id6503616543" target="_blank"><Image src={require('./../../assets/images/appleappstore.png')} width={200}/></a>
 </center>
                 </p>
               </div>
