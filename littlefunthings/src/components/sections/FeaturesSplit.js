@@ -82,6 +82,8 @@ const FeaturesSplit = ({
 <a href="https://play.google.com/store/apps/details?id=com.pseudosoft21.kdramaquotes" target="_blank"><Image src={require('./../../assets/images/googleplay.png')} width={200}/></a>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <a href="https://apps.apple.com/kr/app/id1626721188" target="_blank"><Image src={require('./../../assets/images/appleappstore.png')} width={200}/></a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://www.youtube.com/channel/UCeY_3bwLfhOhG9E2Q0Soj1Q" target="_blank"><Image src={require('./../../assets/images/youtube.png')} width={200}/></a>
 </center>
                 </p>
               </div>
@@ -117,6 +119,8 @@ const FeaturesSplit = ({
 <a href="https://play.google.com/store/apps/details?id=com.pseudosoft21.dailyenglish" target="_blank"><Image src={require('./../../assets/images/googleplay.png')} width={200}/></a>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <a href="https://apps.apple.com/us/app/id6503616543" target="_blank"><Image src={require('./../../assets/images/appleappstore.png')} width={200}/></a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://www.youtube.com/channel/UC5wa55Gx93ejUtES3U6skBA" target="_blank"><Image src={require('./../../assets/images/youtube.png')} width={200}/></a>
 </center>
                 </p>
               </div>
@@ -152,6 +156,8 @@ const FeaturesSplit = ({
 <a href="https://play.google.com/store/apps/details?id=com.pseudosoft21.kdramaquotes" target="_blank"><Image src={require('./../../assets/images/googleplay.png')} width={200}/></a>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <a href="https://apps.apple.com/kr/app/id1626721188" target="_blank"><Image src={require('./../../assets/images/appleappstore.png')} width={200}/></a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://www.youtube.com/channel/UCeY_3bwLfhOhG9E2Q0Soj1Q" target="_blank"><Image src={require('./../../assets/images/youtube.png')} width={200}/></a>
 </center>
                 </p>
               </div>
@@ -187,6 +193,8 @@ const FeaturesSplit = ({
 <a href="https://play.google.com/store/apps/details?id=com.pseudosoft21.dailyenglish" target="_blank"><Image src={require('./../../assets/images/googleplay.png')} width={200}/></a>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <a href="https://apps.apple.com/us/app/id6503616543" target="_blank"><Image src={require('./../../assets/images/appleappstore.png')} width={200}/></a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://www.youtube.com/channel/UC5wa55Gx93ejUtES3U6skBA" target="_blank"><Image src={require('./../../assets/images/youtube.png')} width={200}/></a>
 </center>
                 </p>
               </div>
@@ -222,6 +230,8 @@ const FeaturesSplit = ({
 <a href="https://play.google.com/store/apps/details?id=com.pseudosoft21.dailyenglish" target="_blank"><Image src={require('./../../assets/images/googleplay.png')} width={200}/></a>
 &nbsp;&nbsp;&nbsp;&nbsp;
 <a href="https://apps.apple.com/us/app/id6503616543" target="_blank"><Image src={require('./../../assets/images/appleappstore.png')} width={200}/></a>
+&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="https://www.youtube.com/channel/UC5wa55Gx93ejUtES3U6skBA" target="_blank"><Image src={require('./../../assets/images/youtube.png')} width={200}/></a>
 </center>
                 </p>
               </div>
