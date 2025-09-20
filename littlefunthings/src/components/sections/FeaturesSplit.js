@@ -113,14 +113,6 @@ const FeaturesSplit = ({
                   English listening practice with Dear Abby articles. Powered by google AI Text-to-Speech API.
                   <br></br><br></br><a href="https://littlefunthings.netlify.app/englishstudy" target="englishstudy">go to see live demo</a>
                 </p>
-                <p className="m-0">
-<center>
-<br/><br/>
-<a href="https://play.google.com/store/apps/details?id=com.pseudosoft21.dailyenglish" target="_blank"><Image src={require('./../../assets/images/googleplay.png')} width={200}/></a>
-&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="https://apps.apple.com/us/app/id6503616543" target="_blank"><Image src={require('./../../assets/images/appleappstore.png')} width={200}/></a>
-</center>
-                </p>
               </div>
               <div className={
                 classNames(
