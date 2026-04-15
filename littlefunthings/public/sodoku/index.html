@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EDOS — Every Day One Sudoku</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0b0d17;
+    --surface: #13152a;
+    --surface2: #1a1d35;
+    --purple: #7b6ef6;
+    --purple-light: #a89af8;
+    --green: #2cc97a;
+    --gold: #c9a84c;
+    --text: #f0f0f8;
+    --muted: #7a7d9c;
+    --border: rgba(123,110,246,0.18);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* Animated grid background */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(123,110,246,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(123,110,246,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Glow blobs */
+  .blob {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(120px);
+    pointer-events: none;
+    z-index: 0;
+    animation: drift 12s ease-in-out infinite alternate;
+  }
+  .blob-1 { width: 500px; height: 500px; background: rgba(123,110,246,0.12); top: -100px; right: -100px; }
+  .blob-2 { width: 400px; height: 400px; background: rgba(44,201,122,0.07); bottom: 20%; left: -100px; animation-delay: -4s; }
+  .blob-3 { width: 300px; height: 300px; background: rgba(201,168,76,0.07); bottom: -50px; right: 20%; animation-delay: -8s; }
+
+  @keyframes drift {
+    from { transform: translate(0, 0) scale(1); }
+    to { transform: translate(30px, -30px) scale(1.08); }
+  }
+
+  section, nav, footer { position: relative; z-index: 1; }
+
+  /* NAV */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 60px;
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(11,13,23,0.8);
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+  }
+  .nav-logo span { color: var(--purple); }
+  .nav-cta {
+    background: var(--purple);
+    color: #fff;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 100px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .nav-cta:hover { background: var(--purple-light); transform: translateY(-1px); }
+
+  /* HERO */
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    padding: 100px 60px 80px;
+    min-height: 100vh;
+  }
+
+  .hero-text { max-width: 540px; }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(123,110,246,0.12);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 6px 16px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--purple-light);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    background: var(--green);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.4); }
+  }
+
+  .hero-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(3.5rem, 6vw, 6rem);
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin-bottom: 8px;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  .hero-title .accent { color: var(--purple); }
+
+  .hero-subtitle {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    animation: fadeUp 0.6s 0.15s ease both;
+  }
+
+  .hero-desc {
+    font-size: 1.1rem;
+    color: #b0b3cc;
+    line-height: 1.7;
+    margin-bottom: 48px;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--purple);
+    color: #fff;
+    padding: 16px 32px;
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.25s;
+    box-shadow: 0 8px 32px rgba(123,110,246,0.35);
+  }
+  .btn-primary:hover {
+    background: var(--purple-light);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px rgba(123,110,246,0.45);
+  }
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    padding: 16px 32px;
+    border-radius: 14px;
+    font-weight: 500;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.25s;
+  }
+  .btn-secondary:hover { border-color: var(--purple); color: var(--purple-light); }
+
+  /* Phone mockups */
+  .hero-visuals {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-start;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .phone-mock {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 44px;
+    overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
+    transition: transform 0.4s ease;
+    flex-shrink: 0;
+  }
+  .phone-mock:hover { transform: translateY(-8px) rotate(-1deg); }
+  .phone-mock img { display: block; width: 100%; }
+  .phone-mock:nth-child(1) { width: 180px; margin-top: 60px; transform: rotate(-3deg); }
+  .phone-mock:nth-child(2) { width: 190px; transform: rotate(1deg); z-index: 2; }
+  .phone-mock:nth-child(3) { width: 180px; margin-top: 40px; transform: rotate(3deg); }
+  .phone-mock:nth-child(1):hover { transform: rotate(-3deg) translateY(-8px); }
+  .phone-mock:nth-child(2):hover { transform: rotate(1deg) translateY(-8px); }
+  .phone-mock:nth-child(3):hover { transform: rotate(3deg) translateY(-8px); }
+
+  /* STATS BAR */
+  .stats-bar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    margin: 0 60px;
+  }
+  .stat {
+    background: var(--bg);
+    padding: 40px;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 2.8rem;
+    color: var(--purple);
+    letter-spacing: -0.04em;
+    display: block;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.05em;
+  }
+
+  /* FEATURES */
+  .features {
+    padding: 100px 60px;
+  }
+
+  .section-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--purple);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: block;
+  }
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 60px;
+    max-width: 500px;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .feature-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 40px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--purple), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .feature-card:hover { border-color: rgba(123,110,246,0.4); transform: translateY(-4px); }
+  .feature-card:hover::before { opacity: 1; }
+  .feature-card.wide { grid-column: 1 / -1; }
+
+  .feature-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+  }
+  .icon-purple { background: rgba(123,110,246,0.15); }
+  .icon-green { background: rgba(44,201,122,0.12); }
+  .icon-gold { background: rgba(201,168,76,0.12); }
+  .icon-red { background: rgba(255, 85, 85, 0.1); }
+
+  .feature-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+  .feature-desc {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+  }
+
+  /* SUDOKU PREVIEW SECTION */
+  .puzzle-section {
+    padding: 100px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .sudoku-grid {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 2px;
+    background: rgba(123,110,246,0.2);
+    border: 2px solid rgba(123,110,246,0.3);
+    border-radius: 16px;
+    padding: 2px;
+    max-width: 380px;
+    box-shadow: 0 20px 60px rgba(123,110,246,0.15);
+  }
+
+  .cell {
+    aspect-ratio: 1;
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text);
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+  .cell.given { color: var(--text); font-weight: 600; }
+  .cell.empty { color: transparent; }
+  .cell.highlight { background: rgba(123,110,246,0.25); color: var(--purple-light); }
+  .cell.box-right { border-right: 2px solid rgba(123,110,246,0.4); }
+  .cell.box-bottom { border-bottom: 2px solid rgba(123,110,246,0.4); }
+
+  /* DIFFICULTY PILLS */
+  .diff-showcase {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+  }
+  .diff-pill {
+    padding: 8px 20px;
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .diff-easy { background: rgba(44,201,122,0.15); color: var(--green); border: 1px solid rgba(44,201,122,0.3); }
+  .diff-medium { background: rgba(123,110,246,0.15); color: var(--purple-light); border: 1px solid var(--border); }
+  .diff-hard { background: rgba(255, 120, 80, 0.12); color: #ff9060; border: 1px solid rgba(255,120,80,0.25); }
+
+  /* BRAIN HEALTH SECTION */
+  .brain-section {
+    padding: 80px 60px;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    text-align: center;
+  }
+  .brain-icon {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 24px;
+    animation: float 4s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+  .brain-text {
+    max-width: 680px;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    color: #b0b3cc;
+    line-height: 1.75;
+  }
+  .brain-text strong { color: var(--purple-light); font-weight: 600; }
+
+  /* HOW IT WORKS */
+  .how-section {
+    padding: 100px 60px;
+  }
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    overflow: hidden;
+    margin-top: 60px;
+  }
+  .step {
+    background: var(--bg);
+    padding: 48px 36px;
+    position: relative;
+  }
+  .step-num {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 4rem;
+    color: rgba(123,110,246,0.15);
+    line-height: 1;
+    margin-bottom: 20px;
+    letter-spacing: -0.05em;
+  }
+  .step-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+  .step-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+
+  /* CTA */
+  .cta-section {
+    padding: 120px 60px;
+    text-align: center;
+    position: relative;
+  }
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(123,110,246,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .cta-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    letter-spacing: -0.04em;
+    line-height: 1.0;
+    margin-bottom: 20px;
+  }
+  .cta-desc {
+    color: var(--muted);
+    font-size: 1.1rem;
+    margin-bottom: 48px;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .store-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 16px 28px;
+    border-radius: 16px;
+    text-decoration: none;
+    transition: all 0.25s;
+  }
+  .store-btn:hover {
+    border-color: var(--purple);
+    background: rgba(123,110,246,0.1);
+    transform: translateY(-3px);
+  }
+  .store-btn .store-label { text-align: left; }
+  .store-btn .store-sub { font-size: 0.72rem; color: var(--muted); display: block; }
+  .store-btn .store-name { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; }
+  .store-btn .store-icon { font-size: 1.8rem; }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  .footer-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--text);
+  }
+
+  /* Animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    nav { padding: 20px 24px; }
+    .hero { grid-template-columns: 1fr; padding: 60px 24px; min-height: auto; }
+    .hero-visuals { display: none; }
+    .stats-bar { margin: 0 24px; grid-template-columns: 1fr; }
+    .features { padding: 60px 24px; }
+    .features-grid { grid-template-columns: 1fr; }
+    .feature-card.wide { grid-column: 1; }
+    .puzzle-section { grid-template-columns: 1fr; padding: 60px 24px; }
+    .sudoku-grid { max-width: 100%; }
+    .brain-section { padding: 60px 24px; }
+    .how-section { padding: 60px 24px; }
+    .steps { grid-template-columns: 1fr; }
+    .cta-section { padding: 80px 24px; }
+    footer { padding: 32px 24px; flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">E<span>D</span>OS</div>
+  <a href="#download" class="nav-cta">Download Free</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-badge">🧩 Daily Brain Training</div>
+    <h1 class="hero-title">
+      EDOS<span class="accent">.</span>
+    </h1>
+    <p class="hero-subtitle">Every Day One Sudoku</p>
+    <p class="hero-desc">
+      Keep your mind sharp with just one game a day. Improve focus, train logic, and support your long-term cognitive health — one puzzle at a time.
+    </p>
+    <div class="hero-actions">
+      <a href="#download" class="btn-primary">
+        <span>🍎</span> Download on iOS
+      </a>
+      <a href="#features" class="btn-secondary">
+        <span>↓</span> See Features
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-visuals">
+    <div class="phone-mock">
+      <img src="01.png" alt="EDOS Home Screen" onerror="this.style.height='320px';this.style.background='#1a1d35'">
+    </div>
+    <div class="phone-mock">
+      <img src="02.png" alt="EDOS Calendar" onerror="this.style.height='360px';this.style.background='#1a1d35'">
+    </div>
+    <div class="phone-mock">
+      <img src="03.png" alt="EDOS Game" onerror="this.style.height='340px';this.style.background='#1a1d35'">
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar reveal">
+  <div class="stat">
+    <span class="stat-num">3×</span>
+    <span class="stat-label">Daily Puzzles</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">365</span>
+    <span class="stat-label">Days a Year</span>
+  </div>
+  <div class="stat">
+    <span class="stat-num">∞</span>
+    <span class="stat-label">Sharper Mind</span>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <span class="section-tag reveal">✦ Key Features</span>
+  <h2 class="section-title reveal">Everything you need. Nothing you don't.</h2>
+
+  <div class="features-grid">
+    <div class="feature-card reveal">
+      <div class="feature-icon icon-purple">🎯</div>
+      <h3 class="feature-title">3 Daily Difficulties</h3>
+      <p class="feature-desc">Every day, choose from Easy, Medium, or Hard — brand-new puzzles generated fresh so there's always a perfect challenge, whether you're a beginner or a Sudoku master.</p>
+    </div>
+
+    <div class="feature-card reveal">
+      <div class="feature-icon icon-green">🧠</div>
+      <h3 class="feature-title">Daily Brain Training</h3>
+      <p class="feature-desc">Just one game a day stimulates neural pathways and keeps your mind active. Research links regular puzzle-solving to reduced cognitive decline and improved focus.</p>
+    </div>
+
+    <div class="feature-card reveal">
+      <div class="feature-icon icon-gold">⏸️</div>
+      <h3 class="feature-title">Play on Your Schedule</h3>
+      <p class="feature-desc">Life gets busy — we get it. Pause anytime and our auto-save picks up exactly where you left off. Your puzzle waits patiently while you don't.</p>
+    </div>
+
+    <div class="feature-card reveal">
+      <div class="feature-icon icon-red">🏆</div>
+      <h3 class="feature-title">Share & Compete</h3>
+      <p class="feature-desc">Finished a puzzle? Share your time, brag to your friends, and challenge them to beat your score. Turn your daily habit into a friendly competition.</p>
+    </div>
+
+    <div class="feature-card wide reveal">
+      <div style="display:flex; align-items:center; gap:40px; flex-wrap:wrap;">
+        <div style="flex:1; min-width:200px;">
+          <div class="feature-icon icon-purple">📅</div>
+          <h3 class="feature-title">Monthly Progress Calendar</h3>
+          <p class="feature-desc">Track your streak, view completed puzzles at a glance, and celebrate how consistent you've become. Your entire Sudoku journey, beautifully visualized by month.</p>
+        </div>
+        <div class="diff-showcase" style="flex-shrink:0;">
+          <span class="diff-pill diff-easy">Easy</span>
+          <span class="diff-pill diff-medium">Medium</span>
+          <span class="diff-pill diff-hard">Hard</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PUZZLE SECTION -->
+<section class="puzzle-section">
+  <div class="reveal">
+    <span class="section-tag">✦ The Game</span>
+    <h2 class="section-title">Beautiful. Minimal. Focused.</h2>
+    <p style="color: var(--muted); line-height:1.7; margin-bottom:28px;">Every element of EDOS is designed to get out of your way. Clean grid lines, smooth interactions, and zero distractions — just you and the puzzle.</p>
+    <div class="diff-showcase">
+      <span class="diff-pill diff-easy">Easy</span>
+      <span class="diff-pill diff-medium">Medium</span>
+      <span class="diff-pill diff-hard">Hard</span>
+    </div>
+    <p style="color: var(--muted); font-size: 0.85rem; margin-top:16px; font-family: 'DM Mono', monospace;">New puzzles unlock every midnight 🌙</p>
+  </div>
+
+  <!-- Animated sudoku grid -->
+  <div class="sudoku-grid reveal" id="sudokuGrid"></div>
+</section>
+
+<!-- BRAIN HEALTH -->
+<section class="brain-section reveal">
+  <span class="brain-icon">🧠</span>
+  <h2 style="font-family:'Syne',sans-serif; font-weight:800; font-size:clamp(1.8rem,3vw,2.5rem); letter-spacing:-0.03em; margin-bottom:20px;">Your brain needs daily exercise too.</h2>
+  <p class="brain-text">
+    Sudoku isn't just a game — it's <strong>cognitive fitness</strong>. Regular puzzle-solving has been linked to sharper memory, better concentration, and a reduced risk of Alzheimer's disease. EDOS makes it easy to build the habit with a <strong>single daily puzzle</strong> that takes as little as 5 minutes.
+  </p>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-section">
+  <span class="section-tag reveal">✦ How It Works</span>
+  <h2 class="section-title reveal">Start in 3 simple steps.</h2>
+
+  <div class="steps reveal">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3 class="step-title">Open the App</h3>
+      <p class="step-desc">Launch EDOS and tap Daily Challenge. Three new puzzles await you — fresh every single day.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3 class="step-title">Pick Your Level</h3>
+      <p class="step-desc">Choose Easy, Medium, or Hard depending on your mood. All three count toward your daily progress.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3 class="step-title">Play & Share</h3>
+      <p class="step-desc">Solve the puzzle, then share your result and time. Come back tomorrow and keep your streak alive.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="download">
+  <h2 class="cta-title reveal">
+    Start your<br><span style="color:var(--purple)">daily ritual.</span>
+  </h2>
+  <p class="cta-desc reveal">Free to download. One puzzle a day. A sharper mind for life.</p>
+  <div class="cta-buttons reveal">
+    <a href="#" class="store-btn">
+      <span class="store-icon">🍎</span>
+      <div class="store-label">
+        <span class="store-sub">Download on the</span>
+        <span class="store-name">App Store</span>
+      </div>
+    </a>
+    <a href="#" class="store-btn">
+      <span class="store-icon">▶</span>
+      <div class="store-label">
+        <span class="store-sub">Get it on</span>
+        <span class="store-name">Google Play</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">EDOS</div>
+  <div>Every Day One Sudoku · Elevate your mind through numbers.</div>
+  <div>© 2026 EDOS</div>
+</footer>
+
+<script>
+  // Sudoku grid render
+  const puzzle = [
+    [0,4,5, 2,0,9, 0,0,0],
+    [0,1,0, 8,0,0, 3,9,5],
+    [0,0,3, 6,0,0, 0,2,0],
+    [3,0,8, 0,0,2, 4,0,7],
+    [0,0,0, 9,4,0, 2,0,0],
+    [5,2,0, 3,0,0, 1,8,0],
+    [0,0,1, 0,9,0, 0,0,0],
+    [0,8,0, 5,3,0, 0,1,0],
+    [0,5,0, 4,0,9, 0,0,0],
+  ];
+
+  const highlights = [[1,0],[3,3],[4,4],[0,5]];
+
+  const grid = document.getElementById('sudokuGrid');
+  puzzle.forEach((row, r) => {
+    row.forEach((val, c) => {
+      const cell = document.createElement('div');
+      cell.className = 'cell';
+      const isHL = highlights.some(([hr,hc]) => hr===r && hc===c);
+      if (val !== 0) { cell.classList.add('given'); cell.textContent = val; }
+      else { cell.classList.add('empty'); cell.textContent = '·'; }
+      if (isHL) cell.classList.add('highlight');
+      if ((c+1) % 3 === 0 && c < 8) cell.classList.add('box-right');
+      if ((r+1) % 3 === 0 && r < 8) cell.classList.add('box-bottom');
+      grid.appendChild(cell);
+    });
+  });
+
+  // Animate cells appearing
+  const cells = grid.querySelectorAll('.cell.given');
+  cells.forEach((c, i) => {
+    c.style.opacity = '0';
+    setTimeout(() => {
+      c.style.transition = 'opacity 0.3s ease';
+      c.style.opacity = '1';
+    }, 800 + i * 30);
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
